@@ -1,0 +1,31 @@
+.title {
+  &--primary {
+    color: var(--color-accent-dark-purple);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+  }
+
+  &--secondary {
+    color: var(--color-accent-dark);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+  }
+
+  &--tertiary {
+    color: var(--color-accent-dark);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+  }
+
+  &--quaternary {
+    color: var(--color-accent-dark);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+  }
+
+  &--quinary {
+    color: var(--color-accent-dark);
+    font-weight: var(--font-weight-semi-bold);
+    font-size: var(--font-size-md);
+  }
+}
