@@ -1,0 +1,16 @@
+.menu-button {
+  border-radius: 0.75rem;
+  background-color: var(--color-accent-light);
+  .menu-button__image-container {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}

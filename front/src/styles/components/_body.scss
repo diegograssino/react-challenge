@@ -1,0 +1,29 @@
+.body {
+  &--primary {
+    color: var(--color-accent-dark-medium);
+    font-size: var(--font-size-sm);
+  }
+
+  &--secondary {
+    color: var(--color-accent-dark-medium);
+    font-size: var(--font-size-md);
+  }
+
+  &--tertiary {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+  }
+
+  &--quaternary {
+    color: var(--color-accent-dark);
+    font-weight: var(--font-weight-semi-bold);
+    font-size: var(--font-size-md);
+  }
+
+  &--quinary {
+    color: var(--color-accent-medium-dark);
+    font-weight: var(--font-weight-semi-bold);
+    font-size: var(--font-size-xs);
+  }
+}

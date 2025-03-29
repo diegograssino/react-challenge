@@ -1,0 +1,11 @@
+.product-list {
+  &__header {
+    margin-top: 1.5rem;
+    & > * {
+      margin-bottom: 0.9375rem;
+      &:first-child {
+        margin-bottom: 0.3125rem;
+      }
+    }
+  }
+}

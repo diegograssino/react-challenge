@@ -1,0 +1,9 @@
+.container {
+  padding: var(--layout-top-padding) var(--layout-x-padding)
+    var(--layout-bottom-padding);
+  min-height: calc(
+    100vh - var(--layout-top-padding) - var(--layout-bottom-padding)
+  );
+  display: grid;
+  grid-template-rows: var(--layout-navbar-height) 1fr;
+}
