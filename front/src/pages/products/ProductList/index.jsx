@@ -1,6 +1,11 @@
+import { ProductCard } from "@features/products";
+import { useApiPolling } from "@features/products/hooks";
+import { getProducts } from "@features/products/services";
 import { Body, Title } from "@features/UI";
 
 const ProductList = () => {
+  const products = useApiPolling(getProducts);
+
   return (
     <main>
       <div className="product-list__header">
@@ -14,6 +19,21 @@ const ProductList = () => {
           Our Products
         </Title>
       </div>
+      {products ? (
+        <section className="product-list__grid">
+          {products.map((product) => (
+            <div key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </section>
+      ) : (
+        <div className="product-list__loading">
+          <Body as="p" variant="primary">
+            Loading ...
+          </Body>
+        </div>
+      )}
     </main>
   );
 };

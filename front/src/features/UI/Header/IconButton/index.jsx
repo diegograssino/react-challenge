@@ -1,7 +1,7 @@
-const IconButton = ({ src }) => {
+const IconButton = ({ src, onClick = () => {} }) => {
   return (
-    <button className="menu-button">
-      <div className="menu-button__image-container">
+    <button className="icon-button" onClick={onClick}>
+      <div className="icon-button__image-container">
         <img src={src} />
       </div>
     </button>

@@ -1,7 +1,11 @@
-const Title = ({ children, as, variant }) => {
+const Title = ({ children, as, variant, centered = false }) => {
   const Tag = as || "h1";
 
-  return <Tag className={`title--${variant}`}>{children}</Tag>;
+  return (
+    <div className={centered ? "title--centered-container" : ""}>
+      <Tag className={`title--${variant}`}>{children}</Tag>
+    </div>
+  );
 };
 
 export default Title;

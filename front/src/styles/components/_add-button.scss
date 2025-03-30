@@ -1,9 +1,9 @@
 @use "../abstracts/" as *;
 
-.menu-button {
+.icon-button {
   border-radius: 0.75rem;
-  background-color: $color-accent-light;
-  .menu-button__image-container {
+  background-color: $color-primary;
+  &__image-container {
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
