@@ -1,29 +1,31 @@
+@use "../abstracts/" as *;
+
 .body {
   &--primary {
-    color: var(--color-accent-dark-medium);
-    font-size: var(--font-size-sm);
+    color: $color-accent-dark-medium;
+    font-size: $font-size-sm;
   }
 
   &--secondary {
-    color: var(--color-accent-dark-medium);
-    font-size: var(--font-size-md);
+    color: $color-accent-dark-medium;
+    font-size: $font-size-md;
   }
 
   &--tertiary {
-    color: var(--color-primary);
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xl);
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
   }
 
   &--quaternary {
-    color: var(--color-accent-dark);
-    font-weight: var(--font-weight-semi-bold);
-    font-size: var(--font-size-md);
+    color: $color-accent-dark;
+    font-weight: $font-weight-semi-bold;
+    font-size: $font-size-md;
   }
 
   &--quinary {
-    color: var(--color-accent-medium-dark);
-    font-weight: var(--font-weight-semi-bold);
-    font-size: var(--font-size-xs);
+    color: $color-accent-medium-dark;
+    font-weight: $font-weight-semi-bold;
+    font-size: $font-size-xs;
   }
 }

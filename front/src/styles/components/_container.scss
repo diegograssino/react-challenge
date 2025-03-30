@@ -1,9 +1,8 @@
+@use "../abstracts/" as *;
+
 .container {
-  padding: var(--layout-top-padding) var(--layout-x-padding)
-    var(--layout-bottom-padding);
-  min-height: calc(
-    100vh - var(--layout-top-padding) - var(--layout-bottom-padding)
-  );
+  padding: $layout-top-padding $layout-x-padding $layout-bottom-padding;
+  min-height: calc(100vh - $layout-top-padding - $layout-bottom-padding);
   display: grid;
-  grid-template-rows: var(--layout-navbar-height) 1fr;
+  grid-template-rows: $layout-navbar-height 1fr;
 }

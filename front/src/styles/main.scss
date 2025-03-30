@@ -1,6 +1,8 @@
-@use "base/reset";
-@use "variables/colors";
-@use "variables/typography";
-@use "variables/layout";
-@use "base/base";
-@use "components/index";
+@use "components";
+@use "layouts";
+@use "base";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+body {
+  font-family: "DM Sans", sans-serif;
+}

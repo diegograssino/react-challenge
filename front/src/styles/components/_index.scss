@@ -1,8 +1,6 @@
-@use "title";
-@use "body";
-@use "container";
-@use "header";
-@use "menu-button";
-@use "avatar-button";
-@use "product-list";
-@use "product-detail";
+@forward "title";
+@forward "body";
+@forward "container";
+@forward "header";
+@forward "menu-button";
+@forward "avatar-button";
