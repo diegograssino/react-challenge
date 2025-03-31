@@ -1,13 +1,18 @@
 import { useApiPolling } from "@features/products/hooks";
 import { getIdFromSlug, getPrice } from "@features/products/utils";
 import { Body, Loader, Title } from "@features/UI";
+import Button from "@features/UI/Button";
+import { IconButton } from "@features/UI/Header";
 import { useState } from "react";
 import { useParams } from "react-router";
 
 const ProductDetail = () => {
   const { slug } = useParams();
   const id = getIdFromSlug(slug);
-  const { product, stockPrice, loading, sku, setSku } = useApiPolling({ id });
+  const { product, stockPrice, loading, sku, setSku, error } = useApiPolling({
+    id,
+  });
+
   const handleSkuChange = (pos) => {
     setSku(pos);
   };
@@ -25,6 +30,13 @@ const ProductDetail = () => {
   const handleAddToBag = () => {
     alert("Added to bag!");
   };
+
+  if (error)
+    return (
+      <Title variant="primary" as="h1">
+        Not Found
+      </Title>
+    );
 
   return (
     <main className="product-detail">
@@ -95,20 +107,12 @@ const ProductDetail = () => {
               </div>
             </div>
             <div className="product-detail__footer-ctas">
-              <button
-                className="product-detail__footer-ctas-bag"
+              <IconButton
+                variant="tertiary"
+                src="/public/assets/UI/icons/icon-bag.svg"
                 onClick={handleAddToBag}
-              >
-                <img src="/public/assets/UI/icons/icon-bag.svg" />
-              </button>
-              <button
-                className="product-detail__footer-ctas-buy"
-                onClick={handleAddToCart}
-              >
-                <Body variant="nonary" as="p">
-                  Add to cart
-                </Body>
-              </button>
+              />
+              <Button onClick={handleAddToCart}>Add to cart</Button>
             </div>
           </div>
         </article>

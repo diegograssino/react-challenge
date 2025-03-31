@@ -20,17 +20,6 @@
     padding-bottom: 0.75rem;
   }
 
-  &__add-button {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: $color-primary;
-    border-radius: 0.5rem 0 0.5rem 0;
-    width: 2.25rem;
-    height: 2.25rem;
-    z-index: 10;
-  }
-
   &__footer {
     height: 1rem;
   }

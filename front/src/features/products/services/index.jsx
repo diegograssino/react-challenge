@@ -18,9 +18,12 @@ export async function getProduct(params) {
     const productsResponse = await fetch(`${apiURL}/products`);
     const products = await productsResponse.json();
     const product = products.filter((product) => product.id === params.id)[0];
-    const data = product || { error: "Product not found", code: 404 };
 
-    return data;
+    if (product) {
+      return product;
+    }
+
+    return { error: "Product not found", code: 404 };
   } catch (error) {
     console.error(error);
     return { error, code: 500 };

@@ -109,25 +109,5 @@
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
-
-    & button {
-      border-radius: 0.75rem;
-      border: 0.0625rem solid $color-primary;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    &-bag {
-      width: 3.375rem;
-      height: 3.375rem;
-    }
-
-    &-buy {
-      height: 3.375rem;
-      flex: 1;
-      background-color: $color-primary;
-      color: $color-accent-light;
-    }
   }
 }

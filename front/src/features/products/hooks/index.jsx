@@ -22,28 +22,35 @@ export const useApiPolling = (params) => {
   const [stockPrice, setStockPrice] = useState(null);
   const [loading, setLoading] = useState(true);
   const [sku, setSku] = useState(0);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
       getProduct({ id }).then((productResult) => {
-        setProduct(productResult);
-        getStockPrice({ sku: productResult?.skus[sku].code }).then(
-          (stockPriceResult) => {
-            setStockPrice(stockPriceResult);
-            setLoading(false);
-          }
-        );
+        if ("error" in productResult) {
+          setError(true);
+          return;
+        } else {
+          setProduct(productResult);
+
+          getStockPrice({ sku: productResult?.skus[sku].code }).then(
+            (stockPriceResult) => {
+              setStockPrice(stockPriceResult);
+              setLoading(false);
+            }
+          );
+        }
       });
     };
 
     fetchProduct();
 
     const interval = setInterval(() => {
-      fetchProduct();
+      if (!error) fetchProduct();
     }, 5000);
 
     return () => clearInterval(interval);
   }, [sku]);
 
-  return { product, stockPrice, loading, sku, setSku };
+  return { product, stockPrice, loading, sku, setSku, error };
 };

@@ -4,7 +4,22 @@ export const getProductsController = (req, res) => {
   try {
     const result = productsService();
 
-    res.status(200).send(result);
+    if (result) {
+      res.status(200).send(result);
+      return;
+    }
+
+    res.status(404).send({
+      errors: [
+        {
+          id: sku,
+          status: 404,
+          code: "not-found",
+          title: "Products Not Found",
+          detail: `Products are not available on this server`,
+        },
+      ],
+    });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -17,6 +32,7 @@ export const getStockPriceBySkuController = (req, res) => {
 
     if (result) {
       res.status(200).send(result);
+      return;
     }
 
     res.status(404).send({
