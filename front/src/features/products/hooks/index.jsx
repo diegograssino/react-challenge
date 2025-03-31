@@ -1,28 +1,49 @@
 import { useEffect, useState } from "react";
+import { getProduct, getStockPrice } from "../services";
 
-export function useApiPolling(apiFunction, delay = 5000) {
+export const useApi = (callback, params) => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await apiFunction();
-        setData(response);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+    callback(params).then((res) => {
+      setData(res);
+      setLoading(false);
+    });
+  }, [callback]);
+
+  return { data, loading };
+};
+
+export const useApiPolling = (params) => {
+  const { id } = params;
+
+  const [product, setProduct] = useState(null);
+  const [stockPrice, setStockPrice] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [sku, setSku] = useState(0);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      getProduct({ id }).then((productResult) => {
+        setProduct(productResult);
+        getStockPrice({ sku: productResult?.skus[sku].code }).then(
+          (stockPriceResult) => {
+            setStockPrice(stockPriceResult);
+            setLoading(false);
+          }
+        );
+      });
     };
 
-    fetchData();
+    fetchProduct();
 
-    const intervalId = setInterval(() => {
-      apiFunction().then((response) => {
-        setData(response);
-      });
-    }, delay);
+    const interval = setInterval(() => {
+      fetchProduct();
+    }, 5000);
 
-    return () => clearInterval(intervalId);
-  }, [apiFunction, delay]);
+    return () => clearInterval(interval);
+  }, [sku]);
 
-  return data;
-}
+  return { product, stockPrice, loading, sku, setSku };
+};

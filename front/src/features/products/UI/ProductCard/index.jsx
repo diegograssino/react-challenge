@@ -1,17 +1,18 @@
 import { getSlug } from "@features/products/utils";
-import { Body, Title } from "@features/UI";
+import { Title } from "@features/UI";
 import { useNavigate } from "react-router";
 
 const ProductCard = ({ product }) => {
   let navigate = useNavigate();
-  const { brand, skus, image, id } = product;
+  // const { brand, skus, image, id } = product;
+  const { brand, image, id } = product;
 
-  const price = skus[0].price
-    ? new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(skus[0].price / 100)
-    : null;
+  // const price = skus[0].price
+  //   ? new Intl.NumberFormat("en-US", {
+  //       style: "currency",
+  //       currency: "USD",
+  //     }).format(skus[0].price / 100)
+  //   : null;
 
   const handleAdd = (e) => {
     e.stopPropagation();
@@ -32,9 +33,9 @@ const ProductCard = ({ product }) => {
       </div>
       <img className="product-card__image" src={image} alt={brand} />
       <div className="product-card__footer">
-        <Body as="p" variant="quaternary">
+        {/* <Body as="p" variant="quaternary">
           {price}
-        </Body>
+        </Body> */}
       </div>
       <button
         className="product-card__add-button"

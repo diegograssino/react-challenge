@@ -29,6 +29,28 @@
     font-size: $font-size-xs;
   }
 
+  &--senary {
+    color: $color-accent-medium;
+    font-size: $font-size-sm;
+  }
+
+  &--septenary {
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+  }
+
+  &--octonary {
+    color: $color-primary;
+    font-size: $font-size-sm;
+  }
+
+  &--nonary {
+    color: $color-accent-light;
+    font-weight: $font-weight-semi-bold;
+    font-size: $font-size-md;
+  }
+
   &--centered-container {
     text-align: center;
   }

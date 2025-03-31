@@ -1,10 +1,10 @@
 import { ProductCard } from "@features/products";
-import { useApiPolling } from "@features/products/hooks";
+import { useApi } from "@features/products/hooks";
 import { getProducts } from "@features/products/services";
-import { Body, Title } from "@features/UI";
+import { Body, Loader, Title } from "@features/UI";
 
 const ProductList = () => {
-  const products = useApiPolling(getProducts);
+  const { data: products, loading } = useApi(getProducts);
 
   return (
     <main>
@@ -19,7 +19,7 @@ const ProductList = () => {
           Our Products
         </Title>
       </div>
-      {products ? (
+      {!loading ? (
         <section className="product-list__grid">
           {products.map((product) => (
             <div key={product.id}>
@@ -28,11 +28,7 @@ const ProductList = () => {
           ))}
         </section>
       ) : (
-        <div className="product-list__loading">
-          <Body as="p" variant="primary">
-            Loading ...
-          </Body>
-        </div>
+        <Loader />
       )}
     </main>
   );

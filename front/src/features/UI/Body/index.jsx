@@ -1,9 +1,9 @@
-const Body = ({ children, as, variant, centered = false }) => {
+const Body = ({ children, as, variant, centered = false, className = "" }) => {
   const Tag = as || "p";
 
   return (
     <div className={centered ? "body--centered-container" : ""}>
-      <Tag className={`body--${variant}`}>{children}</Tag>
+      <Tag className={`body--${variant} ${className}`}>{children}</Tag>
     </div>
   );
 };

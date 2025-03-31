@@ -11,13 +11,28 @@ const Header = ({ location }) => {
 
   const handleBack = () => navigate(-1);
 
+  const handleDots = () => {
+    alert("Dots clicked");
+  };
+
+  const handleMenu = () => {
+    alert("Menu clicked");
+  };
+
+  const handleUser = () => {
+    alert("User avatar clicked");
+  };
+
   const renderHeaderContent = (location) => {
     switch (location) {
       case "product-list":
         return (
           <>
-            <IconButton src="/public/assets/UI/header/icon-menu.svg" />
-            <AvatarButton />
+            <IconButton
+              src="/public/assets/UI/header/icon-menu.svg"
+              onClick={handleMenu}
+            />
+            <AvatarButton onClick={handleUser} />
           </>
         );
       case "product-detail":
@@ -30,7 +45,10 @@ const Header = ({ location }) => {
             <Title variant="tertiary" as="h2">
               Detail
             </Title>
-            <IconButton src="/public/assets/UI/header/icon-dots.svg" />
+            <IconButton
+              src="/public/assets/UI/header/icon-dots.svg"
+              onClick={handleDots}
+            />
           </>
         );
       default:
