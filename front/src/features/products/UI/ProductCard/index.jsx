@@ -1,11 +1,12 @@
-import { getSlug } from "@features/products/utils";
-import { Title } from "@features/UI";
+import { getPrice, getSlug } from "@features/products/utils";
+import { Body, Title } from "@features/UI";
 import { IconButton } from "@features/UI/Header";
 import { useNavigate } from "react-router";
 
 const ProductCard = ({ product }) => {
   let navigate = useNavigate();
   const { brand, image, id } = product;
+  const referencePrice = product.skus[0].price;
 
   const handleAdd = (e) => {
     e.stopPropagation();
@@ -26,7 +27,9 @@ const ProductCard = ({ product }) => {
       </div>
       <img className="product-card__image" src={image} alt={brand} />
       <div className="product-card__footer">
-        {/* Place for footer content here (price and rate is not present on the product object) */}
+        <Body as="p" variant="quaternary">
+          {getPrice(referencePrice)}
+        </Body>
       </div>
       <IconButton
         src="/public/assets/UI/header/icon-add.svg"
