@@ -1,10 +1,29 @@
 import { ProductCard } from "@features/products";
-import { useApi } from "@features/products/hooks";
 import { getProducts } from "@features/products/services";
 import { Body, Loader, Title } from "@features/UI";
+import { useQuery } from "@tanstack/react-query";
 
 const ProductList = () => {
-  const { data: products, loading } = useApi(getProducts);
+  const {
+    data: products,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["products"],
+    queryFn: getProducts,
+  });
+
+  if (isError) {
+    return (
+      <Title variant="primary" as="h1">
+        Not Found
+      </Title>
+    );
+  }
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <main>
@@ -19,17 +38,13 @@ const ProductList = () => {
           Our Products
         </Title>
       </div>
-      {!loading ? (
-        <section className="product-list__grid">
-          {products.map((product) => (
-            <div key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          ))}
-        </section>
-      ) : (
-        <Loader />
-      )}
+      <section className="product-list__grid">
+        {products.map((product) => (
+          <div key={product.id}>
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </section>
     </main>
   );
 };
