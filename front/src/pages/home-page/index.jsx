@@ -1,4 +1,4 @@
-import { ProductCard } from "@features/products";
+import { Carousel, ProductCard } from "@features/products";
 import { getProducts } from "@features/products/services";
 import { Body, Loader, Title } from "@features/UI";
 import { useQuery } from "@tanstack/react-query";
@@ -34,6 +34,7 @@ const HomePage = () => {
         <Title variant="secondary" as="h2">
           Welcome Back!
         </Title>
+        <Carousel />
         <Title variant="tertiary" as="h1">
           Our Products
         </Title>
