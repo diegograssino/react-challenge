@@ -1,4 +1,5 @@
 import { Container } from "@features/UI";
+import MobileFrame from "@features/UI/MobileFrame";
 import RoutesConfig from "@pages/routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router";
@@ -10,7 +11,9 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Container>
-          <RoutesConfig />
+          <MobileFrame>
+            <RoutesConfig />
+          </MobileFrame>
         </Container>
       </BrowserRouter>
     </QueryClientProvider>

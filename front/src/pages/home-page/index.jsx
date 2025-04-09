@@ -3,7 +3,7 @@ import { getProducts } from "@features/products/services";
 import { Body, Loader, Title } from "@features/UI";
 import { useQuery } from "@tanstack/react-query";
 
-const ProductList = () => {
+const HomePage = () => {
   const {
     data: products,
     isLoading,
@@ -21,7 +21,7 @@ const ProductList = () => {
     );
   }
 
-  if (isLoading) {
+  if (isLoading || !products) {
     return <Loader />;
   }
 
@@ -49,4 +49,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default HomePage;

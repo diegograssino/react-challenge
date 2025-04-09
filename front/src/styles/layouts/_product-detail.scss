@@ -7,7 +7,7 @@
     display: grid;
     grid-template-rows: auto auto auto 1fr;
     min-height: calc(
-      99vh - $layout-top-padding - $layout-bottom-padding -
+      85vh - $layout-top-padding - $layout-bottom-padding -
         $layout-navbar-height
     );
   }

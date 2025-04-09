@@ -56,7 +56,7 @@ const ProductDetail = () => {
     );
   }
 
-  if (isLoading) {
+  if (isLoading || !product) {
     return <Loader />;
   }
 

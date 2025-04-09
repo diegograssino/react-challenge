@@ -1,0 +1,23 @@
+@use "../abstracts" as *;
+
+.mobile-frame {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    max-height: 100vh;
+    scale: 0.95;
+  }
+
+  &__content {
+    border: 2px solid $color-accent-dark;
+    border-radius: 3.1875rem;
+    padding: 2rem;
+    width: 23.4375rem;
+    height: 50.75rem;
+    overflow: auto;
+    scrollbar-width: thin;
+  }
+}

@@ -25,16 +25,6 @@ const Header = ({ location }) => {
 
   const renderHeaderContent = (location) => {
     switch (location) {
-      case "product-list":
-        return (
-          <>
-            <IconButton
-              src="/public/assets/UI/header/icon-menu.svg"
-              onClick={handleMenu}
-            />
-            <AvatarButton onClick={handleUser} />
-          </>
-        );
       case "product-detail":
         return (
           <>
@@ -52,7 +42,15 @@ const Header = ({ location }) => {
           </>
         );
       default:
-        return null;
+        return (
+          <>
+            <IconButton
+              src="/public/assets/UI/header/icon-menu.svg"
+              onClick={handleMenu}
+            />
+            <AvatarButton onClick={handleUser} />
+          </>
+        );
     }
   };
 
