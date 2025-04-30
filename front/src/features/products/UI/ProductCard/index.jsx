@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
         </Body>
       </div>
       <IconButton
-        src="/public/assets/UI/header/icon-add.svg"
+        src="/assets/UI/header/icon-add.svg"
         onClick={(e) => handleAdd(e)}
         variant="secondary"
       />

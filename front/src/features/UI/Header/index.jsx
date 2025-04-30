@@ -29,14 +29,14 @@ const Header = ({ location }) => {
         return (
           <>
             <IconButton
-              src="/public/assets/UI/header/icon-back.svg"
+              src="/assets/UI/header/icon-back.svg"
               onClick={handleBack}
             />
             <Title variant="tertiary" as="h2">
               Detail
             </Title>
             <IconButton
-              src="/public/assets/UI/header/icon-dots.svg"
+              src="/assets/UI/header/icon-dots.svg"
               onClick={handleDots}
             />
           </>
@@ -45,7 +45,7 @@ const Header = ({ location }) => {
         return (
           <>
             <IconButton
-              src="/public/assets/UI/header/icon-menu.svg"
+              src="/assets/UI/header/icon-menu.svg"
               onClick={handleMenu}
             />
             <AvatarButton onClick={handleUser} />

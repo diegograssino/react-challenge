@@ -1,4 +1,4 @@
-import { getProduct, getStockPrice } from "@features/products/services"; // Assuming this is the correct path
+import { getProduct, getStockPrice } from "@features/products/services";
 import { getIdFromSlug, getPrice } from "@features/products/utils";
 import { Body, Loader, Title } from "@features/UI";
 import Button from "@features/UI/Button";
@@ -130,7 +130,7 @@ const ProductDetail = () => {
           <div className="product-detail__footer-ctas">
             <IconButton
               variant="tertiary"
-              src="/public/assets/UI/icons/icon-bag.svg"
+              src="/assets/UI/icons/icon-bag.svg"
               onClick={handleAddToBag}
             />
             <Button onClick={handleAddToCart}>Add to cart</Button>

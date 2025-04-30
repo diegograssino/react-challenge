@@ -1,7 +1,7 @@
 const AvatarButton = ({ onClick }) => {
   return (
     <button className="avatar-button" onClick={onClick}>
-      <img src="/public/assets/UI/header/michael.png" />
+      <img src="/assets/UI/header/michael.png" />
     </button>
   );
 };

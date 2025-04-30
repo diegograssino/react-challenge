@@ -1,7 +1,12 @@
+import { getFeatureFlag } from "@features/feature-flags";
+import { mockProducts } from "./mock";
+
 // @ts-ignore
-const apiURL = import.meta.env.API_URL || "http://localhost:3010/api";
+const apiURL = import.meta.env.VITE_API_URL || "http://localhost:3010/api";
 
 export async function getProducts() {
+  if (getFeatureFlag("DEMO_MODE")) return mockProducts;
+
   try {
     const response = await fetch(`${apiURL}/products`);
     const data = await response.json();
@@ -14,6 +19,9 @@ export async function getProducts() {
 }
 
 export async function getProduct(params) {
+  if (getFeatureFlag("DEMO_MODE"))
+    return mockProducts.filter((product) => product.id === params.id)[0];
+
   try {
     const productsResponse = await fetch(`${apiURL}/products`);
     const products = await productsResponse.json();
