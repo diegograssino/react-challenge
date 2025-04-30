@@ -1,5 +1,5 @@
 import { getFeatureFlag } from "@features/feature-flags";
-import { mockProducts } from "./mock";
+import { mockProducts, mockStockPrice } from "./mock";
 
 // @ts-ignore
 const apiURL = import.meta.env.VITE_API_URL || "http://localhost:3010/api";
@@ -39,6 +39,8 @@ export async function getProduct(params) {
 }
 
 export async function getStockPrice(params) {
+  if (getFeatureFlag("DEMO_MODE")) return mockStockPrice[params.sku];
+
   try {
     const response = await fetch(`${apiURL}/stock-price/${params.sku}`);
     const stockPrice = await response.json();
