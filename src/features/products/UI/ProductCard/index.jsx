@@ -8,12 +8,6 @@ const ProductCard = ({ product }) => {
   const { brand, image, id } = product;
   const referencePrice = product.skus[0].price;
 
-  const handleAdd = (e) => {
-    e.stopPropagation();
-    e.cancelBubble = true;
-    alert("Product added to cart!");
-  };
-
   const handleClick = () => {
     navigate(getSlug(id, brand));
   };
@@ -31,11 +25,7 @@ const ProductCard = ({ product }) => {
           {getPrice(referencePrice)}
         </Body>
       </div>
-      <IconButton
-        src="/assets/UI/header/icon-add.svg"
-        onClick={(e) => handleAdd(e)}
-        variant="secondary"
-      />
+      <IconButton src="/assets/UI/icons/icon-go.svg" variant="secondary" />
     </article>
   );
 };

@@ -3,6 +3,7 @@ import { getIdFromSlug, getPrice } from "@features/products/utils";
 import { Body, Loader, Title } from "@features/UI";
 import Button from "@features/UI/Button";
 import { IconButton } from "@features/UI/Header";
+import { Popover } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useParams } from "react-router";
@@ -40,12 +41,17 @@ const ProductDetail = () => {
     setCollapseInfo(!collapseInfo);
   };
 
-  const handleAddToCart = () => {
-    alert("Added to cart!");
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const open = Boolean(anchorEl);
+  const popoverId = open ? "simple-popover" : undefined;
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const handleAddToBag = () => {
-    alert("Added to bag!");
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   if (isProductError || isStockPriceError) {
@@ -62,6 +68,20 @@ const ProductDetail = () => {
 
   return (
     <main className="product-detail">
+      <Popover
+        id={popoverId}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
+        <Body as="p" variant="quaternary" className="header__popover">
+          Feature not available!
+        </Body>
+      </Popover>
       <article className="product-detail__container">
         <img className="product-detail__image" src={product?.image} />
         <div className="product-detail__header">
@@ -131,9 +151,12 @@ const ProductDetail = () => {
             <IconButton
               variant="tertiary"
               src="/assets/UI/icons/icon-bag.svg"
-              onClick={handleAddToBag}
+              aria-describedby={id}
+              onClick={handleClick}
             />
-            <Button onClick={handleAddToCart}>Add to cart</Button>
+            <Button aria-describedby={id} onClick={handleClick}>
+              Add to cart
+            </Button>
           </div>
         </div>
       </article>
