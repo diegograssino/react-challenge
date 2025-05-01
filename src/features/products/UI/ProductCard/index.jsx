@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
           {getPrice(referencePrice)}
         </Body>
       </div>
-      <IconButton src="/assets/UI/header/icon-go.svg" variant="secondary" />
+      <IconButton src="/assets/UI/icons/icon-go.svg" variant="secondary" />
     </article>
   );
 };
